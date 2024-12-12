@@ -1,4 +1,5 @@
 import SwiftUI
+import PhotosUI
 
 // CardView con una griglia di placeholder per le foto
 struct CardView: View {
@@ -6,12 +7,9 @@ struct CardView: View {
     
     var body: some View {
         VStack {
-            Text("Day Out Photos")
-                .font(.headline)
-                .padding(.top, 17)
             
-            // Griglia per mostrare placeholder per le foto
-            LazyVGrid(columns: columns, spacing: 10) {
+            // Grid with placeholders for photos
+            LazyVGrid(columns: columns, spacing: 20) {
                 ForEach(1...9, id: \.self) { index in
                     RoundedRectangle(cornerRadius: 10)
                         .fill(Color.gray.opacity(0.5)) // Placeholder di colore grigio
@@ -25,7 +23,7 @@ struct CardView: View {
             }
             .padding()
             
-            Spacer()
+           // Spacer()
         }
         .frame(width: 350, height: 400) // Dimensioni della CardView
         .background(.gray.opacity(0.5)) // Sfondo grigio trasparente
@@ -34,28 +32,28 @@ struct CardView: View {
     }
 }
 
-// ContentView con TabView e una singola Card con griglia
+// Card View
 struct ContentView: View {
     var body: some View {
         TabView {
             // Prima scheda - CanvasView
             CanvasView()
                 .tabItem {
-                    Image(systemName: "note")
+                    Image(systemName: "house")
                     Text("Notes")
                 }
             
             // Seconda scheda - HomeView
             HomeView()
                 .tabItem {
-                    Image(systemName: "gear")
-                    Text("Tags")
+                    Image(systemName: "heart")
+                    Text("favourites")
                 }
             
             // Terza scheda - SettingsView
             SettingsView()
                 .tabItem {
-                    Image(systemName: "heart")
+                    Image(systemName: "gear")
                     Text("Settings")
                 }
         }
@@ -66,28 +64,30 @@ struct ContentView: View {
 
 // CanvasView: Schermata principale con una singola Card, casella di testo e tasto
 struct CanvasView: View {
-    @State private var userText: String = "" // Stato per memorizzare il testo inserito dall'utente
+    @State private var userText: String = "" // memorize text written by user
     
     var body: some View {
         NavigationStack {
             ZStack {
                 Color.gray.opacity(0.1).ignoresSafeArea() // Sfondo della schermata
                 VStack {
-                    Text("All canvases")
-                        .font(.system(size: 40))
+                    Text("Create a beautyful story")
+                        .font(.custom(
+                                "AmericanTypewriter",
+                                fixedSize: 30))
                         .bold()
                         .padding(.top, 12)
                         .padding(.bottom, 20)
                     
-                    Text("Day out with friends")
+                    Text("your story title")
                         .font(.headline)
-                        .padding(.bottom, 20)
-                        .offset(x: -100)
+                        .multilineTextAlignment(.center)
+                        .padding(.bottom, 15)
                     
                     CardView() // Mostra la Card con la griglia
                     
                     // Casella di testo per inserire una descrizione
-                    TextField("Enter description of your day...", text: $userText)
+                    TextField("Get inspired...", text: $userText)
                         .textFieldStyle(RoundedBorderTextFieldStyle()) // Stile della casella di testo
                         .padding()
                         .frame(width: 350)
@@ -96,14 +96,15 @@ struct CanvasView: View {
                     Button(action: {
                         print("User entered: \(userText)") // Azione al clic del tasto
                     }) {
-                        Text("Submit")
+                        Text("Generate")
                             .font(.headline)
                             .foregroundColor(.white)
                             .frame(width: 150, height: 50)
-                            .background(Color.blue) // Colore del tasto
+                            .background(Color.orange) // Colore del tasto
                             .cornerRadius(10)
+                        
                     }
-                    .padding(.top, 10)
+                    .padding(.top, 5)
                     
                     Spacer()
                 }
