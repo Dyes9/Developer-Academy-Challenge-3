@@ -3,16 +3,22 @@
 //  Challenge 3 App
 //
 //  Created by Dylan Esposito on 11/12/24.
-//
+
+//IMAGGA API
+
+
 import SwiftUI
+import PhotosUI
 
 struct ApirequestView: View {
     @State private var allTags: [[String]] = []
     @State private var errorMessage: String?
+    @State private var selectedPhotos: [PhotosPickerItem] = []
+    @State private var userImages: [UIImage] = []
 
     var body: some View {
         VStack {
-            Text("Tag riconosciuti:")
+            Text("Image tags")
                 .font(.headline)
                 .padding()
             
@@ -20,26 +26,56 @@ struct ApirequestView: View {
                 Text("Errore: \(errorMessage)")
                     .foregroundColor(.red)
                     .padding()
-            } else {
-                
-                    List(allTags.indices, id: \.self) { index in
-                        Section(header: Text("Immagine \(index + 1)")) {
-                            ForEach(allTags[index], id: \.self) { tag in
-                                Text(tag)
+            } else if !allTags.isEmpty {
+                List(allTags.indices, id: \.self) { index in
+                    Section(header: Text("Immagine \(index + 1)")) {
+                        ForEach(allTags[index], id: \.self) { tag in
+                            Text(tag)
+                        }
+                    }
+                }
+            }
+            
+            PhotosPicker(
+                selection: $selectedPhotos,
+                matching: .images,
+                photoLibrary: .shared()
+            ) {
+                //Text("Seleziona Immagini")
+                  //  .padding()
+                    //.background(Color.blue)
+                    //.foregroundColor(.white)
+                    //.cornerRadius(10)
+            }
+            .onChange(of: selectedPhotos) { newItems in
+                userImages = []
+                for item in newItems {
+                    item.loadTransferable(type: Data.self) { result in
+                        switch result {
+                        case .success(let data):
+                            if let data = data, let image = UIImage(data: data) {
+                                DispatchQueue.main.async {
+                                    userImages.append(image)
+                                }
+                            }
+                        case .failure(let error):
+                            DispatchQueue.main.async {
+                                errorMessage = "Errore nel caricamento immagine: \(error.localizedDescription)"
                             }
                         }
                     }
                 }
-            
+            }
             
             Button(action: uploadImages) {
-                Text("Carica immagini")
+                Text("Upload Test")
                     .padding()
-                    .background(Color.blue)
+                    .background(Color.green)
                     .foregroundColor(.white)
                     .cornerRadius(10)
             }
         }
+        .padding()
     }
     
     func uploadImages() {
@@ -49,32 +85,26 @@ struct ApirequestView: View {
         guard let credentialsData = credentials.data(using: .utf8) else { return }
         let base64Credentials = credentialsData.base64EncodedString()
 
-        // Immagini da caricare
-        let images = ["image1.jpg", "image2.jpg", "image3.jpg"] // Nomi immagini locali
-        allTags = Array(repeating: [], count: images.count) // Reset tags per ogni immagine
-
         let url = URL(string: "https://api.imagga.com/v2/tags")!
+        allTags = Array(repeating: [], count: userImages.count) // Reset tags per ogni immagine
 
-        for (index, imageName) in images.enumerated() {
-            guard let image = UIImage(named: imageName),
-                  let imageData = image.jpegData(compressionQuality: 0.8) else {
+        for (index, image) in userImages.enumerated() {
+            guard let imageData = image.jpegData(compressionQuality: 0.8) else {
                 DispatchQueue.main.async {
-                    errorMessage = "Errore nel caricare l'immagine: \(imageName)"
+                    errorMessage = "Errore nella conversione dell'immagine"
                 }
                 continue
             }
 
-            // Configura richiesta per ogni immagine
             var request = URLRequest(url: url)
             request.httpMethod = "POST"
             request.addValue("Basic \(base64Credentials)", forHTTPHeaderField: "Authorization")
             let boundary = UUID().uuidString
             request.setValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
 
-            let body = createMultipartBody(data: imageData, boundary: boundary, filename: imageName, mimeType: "image/jpeg", fieldName: "image")
+            let body = createMultipartBody(data: imageData, boundary: boundary, filename: "user_image_\(index).jpg", mimeType: "image/jpeg", fieldName: "image")
             request.httpBody = body
 
-            // Esegui richiesta
             URLSession.shared.dataTask(with: request) { data, response, error in
                 if let error = error {
                     DispatchQueue.main.async {
@@ -90,7 +120,6 @@ struct ApirequestView: View {
                     return
                 }
 
-                // Analizza la risposta JSON
                 do {
                     if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any],
                        let result = json["result"] as? [String: Any],
@@ -104,7 +133,7 @@ struct ApirequestView: View {
                         }
                     } else {
                         DispatchQueue.main.async {
-                            errorMessage = "Formato risposta non valido per \(imageName)"
+                            errorMessage = "Formato risposta non valido"
                         }
                     }
                 } catch {
@@ -129,7 +158,6 @@ struct ApirequestView: View {
         return body
     }
 }
-
 #Preview {
     ApirequestView()
 }
