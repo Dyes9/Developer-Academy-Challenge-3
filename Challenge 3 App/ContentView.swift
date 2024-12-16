@@ -7,25 +7,19 @@ struct ContentView: View {
 
             CanvasView()
                 .tabItem {
-                    Image(systemName: "house")
-                    Text("Home")
+                    Image(systemName: "bubbles.and.sparkles.fill")
+                    Text("Create")
                 }
 
-            ApirequestView()
-                .tabItem {
-                    Image(systemName: "star.square.on.square.fill")
-                    Text("Stories")
-                }
-            
+        
     
             FavouritesView()
                 .tabItem {
                     Image(systemName: "heart")
-                    Text("Favourites")
+                    Text("Saved")
                 }
         }
         .accentColor(.orange)
-        .toolbarBackground(.red, for: .tabBar)
     }
 }
 
@@ -39,14 +33,18 @@ struct CanvasView: View {
             ZStack {
                 Color.gray.opacity(0.1).ignoresSafeArea()
                 VStack {
-                    Text("Home")
+                    Text("Create")
                         .font(.custom(
                                 "Charter",
                                 fixedSize: 30))
+                        .multilineTextAlignment(.leading)
                      
                         .bold()
                         .padding(.top, 12)
                         .padding(.bottom, 20)
+                    
+                    // accessibility
+                        .accessibilityHint("Header")
                     
                     Text("Upload your images here and let the magic happen")
                         .font(.custom(
@@ -54,6 +52,10 @@ struct CanvasView: View {
                                 fixedSize: 20))
                         .multilineTextAlignment(.center)
                         .padding(.bottom, 15)
+                    
+                    //accessibility
+                        
+                        .accessibilityHint("Subheader")
                     
                     PhotoView() //
                     
@@ -73,7 +75,7 @@ struct CanvasView: View {
 
 
 
-// Preview
+
 #Preview {
     ContentView()
 }

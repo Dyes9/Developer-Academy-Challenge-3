@@ -10,9 +10,9 @@ import SwiftUI
 struct FavouritesView: View {
     var body: some View {
         ZStack {
-            Color.blue.opacity(0.1).ignoresSafeArea()
+            Color.gray.opacity(0.1).ignoresSafeArea()
             VStack {
-                Text("Favourites")
+                Text("Saved")
                     .font(.largeTitle)
                     .bold()
                     .padding(.top, 20)
