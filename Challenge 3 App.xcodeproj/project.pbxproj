@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		0D8D5C7D2D103F7B00DA869B /* Secrets.plist in Sources */ = {isa = PBXBuildFile; fileRef = 0D8D5C7C2D103F5100DA869B /* Secrets.plist */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		0DEC15AB2D08481B0079169B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -24,6 +28,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0D8D5C7C2D103F5100DA869B /* Secrets.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Secrets.plist; sourceTree = "<group>"; };
 		0DEC159A2D0848190079169B /* Challenge 3 App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Challenge 3 App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0DEC15AA2D08481B0079169B /* Challenge 3 AppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Challenge 3 AppTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0DEC15B42D08481B0079169B /* Challenge 3 AppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Challenge 3 AppUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -75,6 +80,7 @@
 		0DEC15912D0848190079169B = {
 			isa = PBXGroup;
 			children = (
+				0D8D5C7C2D103F5100DA869B /* Secrets.plist */,
 				0DEC159C2D0848190079169B /* Challenge 3 App */,
 				0DEC15AD2D08481B0079169B /* Challenge 3 AppTests */,
 				0DEC15B72D08481B0079169B /* Challenge 3 AppUITests */,
@@ -236,6 +242,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0D8D5C7D2D103F7B00DA869B /* Secrets.plist in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

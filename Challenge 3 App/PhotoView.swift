@@ -1,7 +1,18 @@
 import SwiftUI
 import PhotosUI
+import Foundation
 
 struct PhotoView: View {
+    
+    //Key management
+    struct Secrets {
+        static func value(for key: String) -> String? {
+            guard let path = Bundle.main.path(forResource: "Secrets", ofType: "plist"),
+                  let dictionary = NSDictionary(contentsOfFile: path) else { return nil }
+            return dictionary[key] as? String
+        }
+    }
+    
     //Grid
     let columns = [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())]
     // Array for storing images
@@ -46,6 +57,7 @@ struct PhotoView: View {
                                     Text("+")
                                         .font(.caption)
                                         .foregroundColor(.white)
+                                        .accessibilityHint("oiiaioiiiai")
                                 }
                                 .onChange(of: photoPickerSelections[index]) { newValue in
                                     guard let newValue = newValue else { return }
@@ -98,11 +110,20 @@ struct PhotoView: View {
     }
 
     func uploadImages() {
+        
+        // Key management  ------------------------------------------
+        
+        
+        let imaggaAPIKey = Secrets.value(for: "ImaggaAPI")
+        let imaggaAPISecret = Secrets.value(for: "ImaggaAPISecret")
+        
+        // -----------------------------------------------------------
+        
         print("Images upload started...")
         
-        let apiKey = "INSERT KEY HERE"
-        let apiSecret = "INSER SECRET API KEY HERE"
-        let credentials = "\(apiKey):\(apiSecret)"
+        let apiKey = imaggaAPIKey
+        let apiSecret = imaggaAPISecret
+        let credentials = "\(String(describing: apiKey)):\(String(describing: apiSecret))"
         guard let credentialsData = credentials.data(using: .utf8) else { return }
         let base64Credentials = credentialsData.base64EncodedString()
 
@@ -162,12 +183,19 @@ struct PhotoView: View {
     }
     
     func generatePrompt(with tags: [[String]]) {
+        
+  //Key management-------------------------------------------------
+        let ChatgptAPIKey = Secrets.value(for: "ChatgptAPI")
+        
+  //---------------------------------------------------------------
+
+        
         print("ChatGPT request begin...")
-        let openAIKey = "INSERT APY KEY HERE" // API KEY
+        let openAIKey = ChatgptAPIKey // API KEY
         let url = URL(string: "https://api.openai.com/v1/completions")!
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
-        request.addValue("Bearer \(openAIKey)", forHTTPHeaderField: "Authorization")
+        request.addValue("Bearer \(String(describing: openAIKey))", forHTTPHeaderField: "Authorization")
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
 
         let tagsString = tags.map { $0.joined(separator: ", ") }.joined(separator: "; ")
@@ -222,7 +250,7 @@ struct PhotoView: View {
     }
 }
 
-// View Modale
+// Modal View appear after pushing button
 struct PromptModalView: View {
     let prompt: String
     
