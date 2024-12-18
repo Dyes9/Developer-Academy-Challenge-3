@@ -47,22 +47,6 @@ For more information, visit [Imagga's official website](https://imagga.com).
 
 ---
 
-### **Technologies Used**  
-
-- **SwiftUI:**  
-  For designing the user interface and ensuring smooth app interactions.  
-
-- **Imagga API:**  
-  For advanced image recognition and tag generation.  
-
-- **PhotosPicker API:**  
-  For seamless photo selection from the user's gallery.  
-
-- **EnvironmentObject:**  
-  Used to manage shared state across views, such as maintaining a history of tagged images.  
-
----
-
 ### **Installation and Setup**  
 
 1. Clone the repository:  
