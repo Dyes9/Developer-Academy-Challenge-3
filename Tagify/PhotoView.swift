@@ -96,8 +96,8 @@ struct PhotoView: View {
     }
 
     func uploadImages() {
-        let apiKey = "acc_16a0bbcebb07d6f"
-        let apiSecret = "3a7f720a0a7667c0282557eccb7b0d94"
+        let apiKey = "APIKEYHERE"
+        let apiSecret = "SECRETAPIKEYHERE"
         let credentials = "\(apiKey):\(apiSecret)"
         guard let credentialsData = credentials.data(using: .utf8) else { return }
         let base64Credentials = credentialsData.base64EncodedString()
