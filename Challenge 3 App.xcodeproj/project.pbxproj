@@ -6,10 +6,6 @@
 	objectVersion = 77;
 	objects = {
 
-/* Begin PBXBuildFile section */
-		0D8D5C7D2D103F7B00DA869B /* Secrets.plist in Sources */ = {isa = PBXBuildFile; fileRef = 0D8D5C7C2D103F5100DA869B /* Secrets.plist */; };
-/* End PBXBuildFile section */
-
 /* Begin PBXContainerItemProxy section */
 		0DEC15AB2D08481B0079169B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -28,16 +24,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0D8D5C7C2D103F5100DA869B /* Secrets.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Secrets.plist; sourceTree = "<group>"; };
-		0DEC159A2D0848190079169B /* Challenge 3 App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Challenge 3 App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0DEC159A2D0848190079169B /* Tagify.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tagify.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0DEC15AA2D08481B0079169B /* Challenge 3 AppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Challenge 3 AppTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0DEC15B42D08481B0079169B /* Challenge 3 AppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Challenge 3 AppUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		0DEC159C2D0848190079169B /* Challenge 3 App */ = {
+		0DEC159C2D0848190079169B /* Tagify */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = "Challenge 3 App";
+			path = Tagify;
 			sourceTree = "<group>";
 		};
 		0DEC15AD2D08481B0079169B /* Challenge 3 AppTests */ = {
@@ -80,8 +75,7 @@
 		0DEC15912D0848190079169B = {
 			isa = PBXGroup;
 			children = (
-				0D8D5C7C2D103F5100DA869B /* Secrets.plist */,
-				0DEC159C2D0848190079169B /* Challenge 3 App */,
+				0DEC159C2D0848190079169B /* Tagify */,
 				0DEC15AD2D08481B0079169B /* Challenge 3 AppTests */,
 				0DEC15B72D08481B0079169B /* Challenge 3 AppUITests */,
 				0DEC159B2D0848190079169B /* Products */,
@@ -91,7 +85,7 @@
 		0DEC159B2D0848190079169B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				0DEC159A2D0848190079169B /* Challenge 3 App.app */,
+				0DEC159A2D0848190079169B /* Tagify.app */,
 				0DEC15AA2D08481B0079169B /* Challenge 3 AppTests.xctest */,
 				0DEC15B42D08481B0079169B /* Challenge 3 AppUITests.xctest */,
 			);
@@ -101,9 +95,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		0DEC15992D0848190079169B /* Challenge 3 App */ = {
+		0DEC15992D0848190079169B /* Tagify */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 0DEC15BE2D08481B0079169B /* Build configuration list for PBXNativeTarget "Challenge 3 App" */;
+			buildConfigurationList = 0DEC15BE2D08481B0079169B /* Build configuration list for PBXNativeTarget "Tagify" */;
 			buildPhases = (
 				0DEC15962D0848190079169B /* Sources */,
 				0DEC15972D0848190079169B /* Frameworks */,
@@ -114,13 +108,13 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				0DEC159C2D0848190079169B /* Challenge 3 App */,
+				0DEC159C2D0848190079169B /* Tagify */,
 			);
-			name = "Challenge 3 App";
+			name = Tagify;
 			packageProductDependencies = (
 			);
 			productName = "Challenge 3 App";
-			productReference = 0DEC159A2D0848190079169B /* Challenge 3 App.app */;
+			productReference = 0DEC159A2D0848190079169B /* Tagify.app */;
 			productType = "com.apple.product-type.application";
 		};
 		0DEC15A92D08481B0079169B /* Challenge 3 AppTests */ = {
@@ -206,7 +200,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				0DEC15992D0848190079169B /* Challenge 3 App */,
+				0DEC15992D0848190079169B /* Tagify */,
 				0DEC15A92D08481B0079169B /* Challenge 3 AppTests */,
 				0DEC15B32D08481B0079169B /* Challenge 3 AppUITests */,
 			);
@@ -242,7 +236,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0D8D5C7D2D103F7B00DA869B /* Secrets.plist in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -265,12 +258,12 @@
 /* Begin PBXTargetDependency section */
 		0DEC15AC2D08481B0079169B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 0DEC15992D0848190079169B /* Challenge 3 App */;
+			target = 0DEC15992D0848190079169B /* Tagify */;
 			targetProxy = 0DEC15AB2D08481B0079169B /* PBXContainerItemProxy */;
 		};
 		0DEC15B62D08481B0079169B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 0DEC15992D0848190079169B /* Challenge 3 App */;
+			target = 0DEC15992D0848190079169B /* Tagify */;
 			targetProxy = 0DEC15B52D08481B0079169B /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -328,6 +321,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
@@ -385,6 +380,9 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "";
+				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
@@ -402,7 +400,6 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Challenge 3 App/Preview Content\"";
 				DEVELOPMENT_TEAM = AF5TYGL467;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -416,7 +413,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.academy.Challenge-3-App";
+				PRODUCT_BUNDLE_IDENTIFIER = com.academy.Tagify;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -431,7 +428,6 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Challenge 3 App/Preview Content\"";
 				DEVELOPMENT_TEAM = AF5TYGL467;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -445,7 +441,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.academy.Challenge-3-App";
+				PRODUCT_BUNDLE_IDENTIFIER = com.academy.Tagify;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -533,7 +529,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		0DEC15BE2D08481B0079169B /* Build configuration list for PBXNativeTarget "Challenge 3 App" */ = {
+		0DEC15BE2D08481B0079169B /* Build configuration list for PBXNativeTarget "Tagify" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				0DEC15BF2D08481B0079169B /* Debug */,
