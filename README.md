@@ -1,25 +1,24 @@
 # Apple Developer Academy - Challenge 3
+# "Tagify: a simple picture auto-tagger" 
 ---------------------------------------
-This iOs Application prototype allows to create short stories based on pictures uploaded by the user.
-## Descritpion
-This project makes use of two different APIs:
-- ### Imagga API
-  for image recognition and tagging
+## App description
 
-    *https://imagga.com*
-  
-- ### OpenAI ChatGPT API
-  for the creation of generative text
-  
-   *https://platform.openai.com*
+This iOs app prototype is a simple tool that allows to automatically generate tags for your pictures.
+This can be particularly useful for social media posting.
+
+The app makes use of Imagga's image recognition API
+
+##About Imagga
+
+*"Imagga is an Platform-as-a-Service providing Image recognition API that help business
+understand and monetize image content in the cloud and on-premise."*
+
+More about on the offical website https://imagga.com 
+
 ----------------------------------------
 ## How it works
-1) When the user uploads one or more images, the images are sent to Imagga via API POST request.
+1) When the user uploads one or more images, the images are sent to Imagga via with a POST request.
 The output of this operation is a series of tags for each of the uploaded pictures
 
-*Example: Image1 : [Tag1, Tag2, Tag3]*
+*Example: Image_of_flowers : #nature, #plants, #gardening 
 
-3) The tags of the images are then used to make a prompt for OpenAI's GPT.
-
-*Example: "Create a short story, max 500 characters, inspired by the following tags": [Tag1, Tag2, Tag3]*
-  
