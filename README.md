@@ -1,24 +1,79 @@
-# Apple Developer Academy - Challenge 3
-# "Tagify: a simple picture auto-tagger" 
----------------------------------------
-## App description
+# **Apple Developer Academy - Challenge 3**  
+## **Tagify: A Simple Picture Auto-Tagger**  
 
-This iOs app prototype is a simple tool that allows to automatically generate tags for your pictures.
-This can be particularly useful for social media posting.
+### **Overview**  
+Tagify is an iOS app prototype designed to streamline the process of generating tags for your pictures.  
+Whether you're a social media enthusiast or someone looking to organize their photo collection efficiently, Tagify simplifies tagging by utilizing **Imagga's image recognition API** to automatically identify and suggest tags based on your images.  
 
-The app makes use of Imagga's image recognition API
+---
 
-##About Imagga
+### **Features**  
+- Upload one or multiple images to the app.  
+- Automatically receive suggested tags based on the content of your images.  
+- Save a history of your tagged images for future reference.  
+- User-friendly interface with simple upload and tag generation workflows.  
 
-*"Imagga is an Platform-as-a-Service providing Image recognition API that help business
-understand and monetize image content in the cloud and on-premise."*
+This app is ideal for anyone who frequently posts on social media or works with image content and needs quick, reliable tagging assistance.
 
-More about on the offical website https://imagga.com 
+---
 
-----------------------------------------
-## How it works
-1) When the user uploads one or more images, the images are sent to Imagga via with a POST request.
-The output of this operation is a series of tags for each of the uploaded pictures
+### **About Imagga**  
 
-*Example: Image_of_flowers : #nature, #plants, #gardening 
+> *"Imagga is a Platform-as-a-Service providing Image Recognition APIs that help businesses understand and monetize image content in the cloud and on-premise."*  
 
+Imagga offers powerful image analysis tools capable of detecting objects, scenes, and attributes in pictures, which makes it perfect for applications like Tagify.  
+
+For more information, visit [Imagga's official website](https://imagga.com).  
+
+---
+
+### **How It Works**  
+
+1. **Upload Images:**  
+   Select one or more pictures from your device using the app's built-in photo picker.  
+
+2. **Image Analysis:**  
+   The app sends your uploaded images to the **Imagga API** via a secure POST request.  
+
+3. **Receive Tags:**  
+   Imagga processes your images and returns a list of descriptive tags for each picture. These tags can then be used for organizing or sharing your photos.  
+
+   #### Example:  
+   - **Uploaded Image:** A bouquet of flowers  
+   - **Suggested Tags:** `#nature`, `#plants`, `#gardening`  
+
+4. **View and Save History:**  
+   Access previously tagged images in the **History** section, complete with their associated tags.  
+
+---
+
+### **Technologies Used**  
+
+- **SwiftUI:**  
+  For designing the user interface and ensuring smooth app interactions.  
+
+- **Imagga API:**  
+  For advanced image recognition and tag generation.  
+
+- **PhotosPicker API:**  
+  For seamless photo selection from the user's gallery.  
+
+- **EnvironmentObject:**  
+  Used to manage shared state across views, such as maintaining a history of tagged images.  
+
+---
+
+### **Installation and Setup**  
+
+1. Clone the repository:  
+   ```bash
+   git clone https://github.com/yourusername/tagify.git
+   cd tagify
+      ```
+   
+2. Open the project in Xcode
+3. Set up your Imagga API credentials
+- Create a free account on [Imagga](https://imagga.com)
+- Obtain your API and Secret
+- Add your credentials to the appropriate variables in the code (apiKey and apiSecret in PhotoView)
+4. Run the project on Xcode or your iPhone

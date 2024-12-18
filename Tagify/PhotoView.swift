@@ -1,5 +1,16 @@
 import SwiftUI
 import PhotosUI
+// cronology
+
+class HistoryManager: ObservableObject {
+    @Published var imageHistory: [(UIImage, [String])] = []
+    
+    func addToHistory(image: UIImage, tags: [String]) {
+        imageHistory.append((image, tags))
+    }
+}
+
+
 
 struct PhotoView: View {
     let columns = [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())]
@@ -96,8 +107,8 @@ struct PhotoView: View {
     }
 
     func uploadImages() {
-        let apiKey = "APIKEYHERE"
-        let apiSecret = "SECRETAPIKEYHERE"
+        let apiKey = "YOURAPIKEYHERE"
+        let apiSecret = "YOURAPISECRETHERE"
         let credentials = "\(apiKey):\(apiSecret)"
         guard let credentialsData = credentials.data(using: .utf8) else { return }
         let base64Credentials = credentialsData.base64EncodedString()
