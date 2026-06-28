@@ -1,5 +1,5 @@
-# **Apple Developer Academy - Challenge 3**  
-## **Tagify: A Simple Picture Auto-Tagger**  
+# **Tagify**  
+## **A simple tool to recognize objects in pictures and extract tags for Social Network Posts**  
 
 ### **Overview**  
 Tagify is an iOS app prototype designed to streamline the process of generating tags for your pictures.  
