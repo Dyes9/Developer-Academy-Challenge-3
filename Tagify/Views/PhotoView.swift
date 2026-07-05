@@ -6,9 +6,7 @@ import PhotosUI
 
 
 struct PhotoView: View {
-    let columns = [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())]
-    @State private var selectedImages: [UIImage?] = Array(repeating: nil, count: 9)
-    @State private var photoPickerSelections: [PhotosPickerItem?] = Array(repeating: nil, count: 9)
+
     @State private var imageTags: [(UIImage, [String])] = []
     @State private var isShowingModal: Bool = false
     @State private var isLoading: Bool = false // Stato per il caricamento
@@ -17,53 +15,7 @@ struct PhotoView: View {
         VStack {
             // Grid
             VStack {
-                LazyVGrid(columns: columns, spacing: 20) {
-                    ForEach(0..<9, id: \.self) { index in
-                        ZStack {
-                            RoundedRectangle(cornerRadius: 10)
-                                .fill(Color.gray.opacity(0.5))
-                                .frame(width: 80, height: 80)
-
-                            if let image = selectedImages[index] {
-                                Image(uiImage: image)
-                                    .resizable()
-                                    .scaledToFill()
-                                    .frame(width: 80, height: 80)
-                                    .clipShape(RoundedRectangle(cornerRadius: 10))
-                                    .contextMenu {
-                                        Button(role: .destructive) {
-                                            //removeImage(at: index)
-                                        } label: {
-                                            Label("Delete", systemImage: "trash")
-                                        }
-                                    }
-                            } else {
-                                PhotosPicker(selection: $photoPickerSelections[index], matching: .images, photoLibrary: .shared()) {
-                                    Text("+")
-                                        .font(.caption)
-                                        .foregroundColor(.white)
-                                        .accessibilityHint("Select an image")
-                                }
-                                .onChange(of: photoPickerSelections[index]) { newValue in
-                                    guard let newValue = newValue else { return }
-                                    newValue.loadTransferable(type: Data.self) { result in
-                                        DispatchQueue.main.async {
-                                            switch result {
-                                            case .success(let data):
-                                                if let data = data, let image = UIImage(data: data) {
-                                                    selectedImages[index] = image
-                                                }
-                                            case .failure(let error):
-                                                print("Errore during loading: \(error.localizedDescription)")
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-                .padding()
+              // Quì dovrà comparire la foto caticata dall'utente
             }
             .frame(width: 350, height: 400)
             .background(.gray.opacity(0.5))

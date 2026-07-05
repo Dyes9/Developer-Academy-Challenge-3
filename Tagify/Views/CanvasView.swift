@@ -2,14 +2,14 @@ import SwiftUI
 import PhotosUI
 
 struct CanvasView: View {
-    // memorize text written by user
+    //
     
     var body: some View {
         NavigationStack {
             ZStack {
                 Color.gray.opacity(0.1).ignoresSafeArea()
                 VStack {
-                    Text("Tagify")
+                    Text("Sono")
                         .font(.custom(
                                 "Charter",
                                 fixedSize: 40))
@@ -20,7 +20,7 @@ struct CanvasView: View {
                     // accessibility
                         .accessibilityHint("Header")
                     
-                    Text("Upload your images here ")
+                    Text("What does it sound like?")
                         .font(.custom(
                                 "Charter",
                                 fixedSize: 20))
