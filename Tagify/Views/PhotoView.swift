@@ -71,7 +71,7 @@ struct PhotoView: View {
             .padding(8)
             
             // Generate button
-            Button(action: uploadImages) {
+            Button(action: {}) {
                 if isLoading {
                     ProgressView()
                         .frame(width: 150, height: 50)
